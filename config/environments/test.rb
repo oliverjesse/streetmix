@@ -27,4 +27,4 @@ config.action_mailer.delivery_method = :test
 # like if you have constraints or database-specific column types
 # config.active_record.schema_format = :sql
 
-GOOGLE_API_KEY = 'ABQIAAAAlAsSFXsiN3MCRMmEvQ2ihBSQ960dr68roU-HxUbRzGITClCuXBQVZCk-GBTlEiD2uQC5fty6M5CRLQ'
+GOOGLE_API_KEY = 'ABQIAAAAlAsSFXsiN3MCRMmEvQ2ihBT7muJXuwH9TG4WmXpOK5eX8zPdpxQG2R7iraxSe9pMr9kYJ4QHMfiOfw'
