@@ -1,0 +1,60 @@
+package configuration for libffi is not found
+find_header: checking for #include <ffi.h>
+... -------------------- no
+
+"gcc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin9.0 -I.     -Os -pipe -fno-common  conftest.c -o conftest.i"
+conftest.c:1:17: error: ffi.h: No such file or directory
+checked program was:
+/* begin */
+1: #include <ffi.h>
+/* end */
+
+"gcc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin9.0 -I.     -Os -pipe -fno-common -I/usr/local/include conftest.c -o conftest.i"
+conftest.c:1:17: error: ffi.h: No such file or directory
+checked program was:
+/* begin */
+1: #include <ffi.h>
+/* end */
+
+--------------------
+
+have_func: checking for rb_thread_blocking_region()... -------------------- no
+
+"gcc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin9.0 -I.   -arch ppc -arch i386 -Os -pipe -fno-common conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch ppc -arch i386     -lruby  -lpthread -ldl -lm  "
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘rb_thread_blocking_region’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘rb_thread_blocking_region’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+lipo: can't figure out the architecture type of: /var/folders/nS/nSMokxd1HCWvujiqUk63r++++TM/-Tmp-//ccc0gU0N.out
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return 0; }
+/* end */
+
+"gcc -o conftest -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin9.0 -I.   -arch ppc -arch i386 -Os -pipe -fno-common conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib -L. -arch ppc -arch i386     -lruby  -lpthread -ldl -lm  "
+Undefined symbols for architecture i386:
+  "_rb_thread_blocking_region", referenced from:
+      _t in cc4xt2kX.o
+ld: symbol(s) not found for architecture i386
+collect2: ld returned 1 exit status
+Undefined symbols for architecture ppc:
+  "_rb_thread_blocking_region", referenced from:
+      _t in cc6eJls4.o
+ld: symbol(s) not found for architecture ppc
+collect2: ld returned 1 exit status
+lipo: can't open input file: /var/folders/nS/nSMokxd1HCWvujiqUk63r++++TM/-Tmp-//cc30EUcn.out (No such file or directory)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { rb_thread_blocking_region(); return 0; }
+/* end */
+
+--------------------
+

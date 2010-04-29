@@ -1,0 +1,25 @@
+<p>
+  <b>Lat:</b>
+  <%=h @clue.lat %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%=h @clue.long %>
+</p>
+
+<p>
+  <b>Caption:</b>
+  <%=h @clue.caption %>
+</p>
+
+<p>
+  <b>Team:</b>
+  <%=h @clue.team_id %>
+</p>
+<p><%= image_tag @clue.photo.url(:large) %></p>
+
+
+
+<%= link_to 'Edit', edit_team_clue_path(@team, @clue) %> |
+<%= link_to 'Back', team_clues_path %>

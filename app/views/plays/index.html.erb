@@ -1,0 +1,30 @@
+<h1>Listing plays</h1>
+
+<table>
+  <tr>
+    <th>Scenario</th>
+    <th>Lat</th>
+    <th>Long</th>
+    <th>Duration</th>
+    <th>Winning team</th>
+    <th>Start time</th>
+  </tr>
+
+<% @plays.each do |play| %>
+  <tr>
+    <td><%=h play.scenario_id %></td>
+    <td><%=h play.lat %></td>
+    <td><%=h play.long %></td>
+    <td><%=h play.duration %></td>
+    <td><%=h play.winning_team_id %></td>
+    <td><%=h play.start_time %></td>
+    <td><%= link_to 'Show', play %></td>
+    <td><%= link_to 'Edit', edit_play_path(play) %></td>
+    <td><%= link_to 'Destroy', play, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New play', new_play_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  lat: 1.5
+  long: 1.5
+  caption: MyString
+  team_id: 1
+  photo: 
+
+two:
+  lat: 1.5
+  long: 1.5
+  caption: MyString
+  team_id: 1
+  photo: 

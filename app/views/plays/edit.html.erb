@@ -1,0 +1,36 @@
+<h1>Editing play</h1>
+
+<% form_for(@play) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :scenario_id %><br />
+    <%= f.text_field :scenario_id %>
+  </p>
+  <p>
+    <%= f.label :lat %><br />
+    <%= f.text_field :lat %>
+  </p>
+  <p>
+    <%= f.label :long %><br />
+    <%= f.text_field :long %>
+  </p>
+  <p>
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.label :winning_team_id %><br />
+    <%= f.text_field :winning_team_id %>
+  </p>
+  <p>
+    <%= f.label :start_time %><br />
+    <%= f.datetime_select :start_time %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @play %> |
+<%= link_to 'Back', plays_path %>

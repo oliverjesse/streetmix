@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  scenario_id: 1
+  lat: 1.5
+  long: 1.5
+  duration: 1
+  winning_team_id: 1
+  start_time: 2010-04-22 11:58:47
+
+two:
+  scenario_id: 1
+  lat: 1.5
+  long: 1.5
+  duration: 1
+  winning_team_id: 1
+  start_time: 2010-04-22 11:58:47
