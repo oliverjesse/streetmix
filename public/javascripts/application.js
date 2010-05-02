@@ -60,10 +60,13 @@ function initialize_google_maps_with_territory_points(address, redteam, blueteam
 				if (!points[i]) {
 	        alert("point not found");
 	      } else {
+					// this is to preload the image so popup size set correctly
+					var preload = $('<img />').attr('src', points[i][2]);
+					
+					// here we add a nice point to our map and adjust the bounds
 					var gpoint = new GLatLng(points[i][0],points[i][1]);
 					bounds.extend(gpoint); 
 	        map.addOverlay(createMarker(gpoint, team, points[i][2]));
-	        // marker.openInfoWindowHtml(points[i].toString());
 	        map.setCenter(bounds.getCenter(),map.getBoundsZoomLevel(bounds)); 
 	      }
 			}
