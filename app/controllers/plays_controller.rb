@@ -14,6 +14,7 @@ class PlaysController < ApplicationController
   # GET /plays/1.xml
   def show
     @play = Play.find(params[:id])
+    @scenario = @play.scenario
 
     respond_to do |format|
       format.html # show.html.erb

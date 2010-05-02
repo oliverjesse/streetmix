@@ -1,39 +1,14 @@
 
-  <script type="text/javascript"
-  src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<%= ::GOOGLE_API_KEY %>" >
-  </script>
 
 
-  <div id="map_canvas" style = "width: 500px; height: 300px"></div>
 
-  <script type="text/javascript">
+<div id="map_canvas" style = "width: 500px; height: 300px"></div>
 
-    var geocoder = new GClientGeocoder();
 
-    function initialize_google_maps() {
 
-      if (GBrowserIsCompatible()) {
-        var map = new GMap2(document.getElementById("map_canvas"));
-        map.addControl(new GSmallMapControl());
-        geocoder.getLatLng(
-          "<%= @scenario.address -%>",
-          function(point) {
-            if (!point) {
-              alert("<%= @scenario.address -%>" + " not found");
-            } else {
-              map.setCenter(point, 13);
-              var marker = new GMarker(point);
-              map.addOverlay(marker);
-              marker.openInfoWindowHtml(@scenario.address);
-            }
-          }
-        ); 
-      }
-    }
-    initialize_google_maps();
-  </script>
-
-  
+<script type="text/javascript">
+  initialize_google_maps('<%= @scenario.address.to_s -%>');
+</script>
 
 <p>
   <b>Title:</b>

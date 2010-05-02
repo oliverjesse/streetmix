@@ -1,3 +1,6 @@
+
+<div id="map_canvas" style = "width: 500px; height: 300px"></div>
+
 <p>
   <b>Scenario:</b>
   <%=h @play.scenario.description %>
@@ -29,10 +32,15 @@
 </p>
 
 <p>
-  <b>Time left:</b><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-  <style type="text/css">@import "jquery.countdown.css";</style> 
-  <script type="text/javascript" src="jquery.countdown.js"></script>
+  <b>Time left:</b>
+
+  <div id = "countdown"></div>
   
+  <script type="text/javascript">
+    $('#countdown').countdown({until: <%= @play.seconds_left %>, format: 'hms'});
+    initialize_google_maps_with_territory_points('<%= @scenario.address -%>',<%= @play.teams.first.clue_points.to_json -%>,<%= @play.teams.last.clue_points.to_json -%>);
+  </script>
+
 </p>
 <%- @play.teams.each do |team| %>
   <p>
@@ -45,4 +53,4 @@
 <%= link_to 'Back', plays_path %>
 
 
-<p><b>TODO:</b> Perhaps show map of game status?  Ticking clock with time remaining?  How would somebody tell us who won?</p>
+<p><b>TODO:</b> Perhaps show map of game status?  How would somebody tell us who won?</p>

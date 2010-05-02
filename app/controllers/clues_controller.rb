@@ -20,6 +20,7 @@ class CluesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @clue }
+      format.json { render :text => @clue.to_json }
     end
   end
 
@@ -49,9 +50,11 @@ class CluesController < ApplicationController
         flash[:notice] = 'Clue was successfully created.'
         format.html { redirect_to([@team, @clue]) }
         format.xml  { render :xml => @clue, :status => :created, :location => @clue }
+        format.json { render :text => @event.to_json }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @clue.errors, :status => :unprocessable_entity }
+        format.json { render :text => @clue.errors, :status => :unprocessable_entity }
       end
     end
   end

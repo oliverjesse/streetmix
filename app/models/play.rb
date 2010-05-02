@@ -17,5 +17,13 @@ class Play < ActiveRecord::Base
     Team.create!({:play_id => self.id, :name => "Red Team"})
     Team.create!({:play_id => self.id, :name => "Blue Team"})
   end
+  
+  def end_time
+    start_time + duration.minutes
+  end
+
+  def seconds_left
+    end_time - Time.now
+  end
 
 end
