@@ -5,7 +5,7 @@ class Team < ActiveRecord::Base
   def clue_points
     points = []
     clues.each do |clue|
-      points << [clue.lat, clue.long]
+      points << [clue.lat, clue.long, clue.photo.url(:medium)]
     end
     points
   end
