@@ -1,56 +1,54 @@
 
-<div id="map_canvas" style = "width: 600px; height: 400px"></div>
+<div id="left-column">
+  <div id="scenario-title">
+    <%=h @play.scenario.title %>
+  </div>
+  <div id="scenario-stats">
+    <div id="scenario-timer">
+      
+      <p>
+        <b>Time left:</b>
 
-<p>
-  <b>Scenario:</b>
-  <%=h @play.scenario.description %>
-</p>
+        <div id = "countdown"></div>
 
-<p>
-  <b>Lat:</b>
-  <%=h @play.lat %>
-</p>
 
-<p>
-  <b>Long:</b>
-  <%=h @play.long %>
-</p>
 
-<p>
-  <b>Duration:</b>
-  <%=h @play.duration %>
-</p>
+      </p>
+    </div>
+    <div id="scenario-points">
+    </div>
+  </div>
+  <div id="scenario-facts">
+    <p>
+      <b>Scenario:</b>
+      <%=h @play.scenario.description %>
+    </p>
+    <p>
+      <b>Starting Address:</b>
+      <%=h @play.scenario.address %>
+    </p>
+    <p>
+      <b>Duration:</b>
+      <%=h @play.duration %>
+    </p>
 
-<p>
-  <b>Winning team:</b>
-  <%=h @play.winning_team_id %>
-</p>
+    <p>
+      <b>Winning team:</b>
+      <%=h @play.winning_team_id %>
+    </p>
 
-<p>
-  <b>Start time:</b>
-  <%=h @play.start_time %>
-</p>
-
-<p>
-  <b>Time left:</b>
-
-  <div id = "countdown"></div>
+    <p>
+      <b>Start time:</b>
+      <%=h @play.start_time %>
+    </p>
+    
+  </div>
+</div>
+<div id="right-column">
+  <div id="map_canvas" style = "width: 600px; height: 400px"></div>
   
   <script type="text/javascript">
     $('#countdown').countdown({until: <%= @play.seconds_left %>, format: 'hms'});
     initialize_google_maps_with_territory_points('<%= @scenario.address -%>',<%= @play.teams.first.clue_points.to_json -%>,<%= @play.teams.last.clue_points.to_json -%>);
   </script>
-
-</p>
-<%- @play.teams.each do |team| %>
-  <p>
-    <%= link_to (('Clues for ' + team.name), team_clues_path(team)) -%>
-  </p>
-<%- end %>
-
-
-<%= link_to 'Edit', edit_play_path(@play) %> |
-<%= link_to 'Back', plays_path %>
-
-
-<p><b>TODO:</b> Better info -- (status, time left, total points, area?!?!) ... How would somebody tell us who won?</p>
+</div>

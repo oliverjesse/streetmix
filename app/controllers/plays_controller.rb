@@ -19,6 +19,7 @@ class PlaysController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @play }
+      format.json { render :text => @play.to_json }
     end
   end
 

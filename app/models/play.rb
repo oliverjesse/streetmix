@@ -25,5 +25,13 @@ class Play < ActiveRecord::Base
   def seconds_left
     end_time - Time.now
   end
+  
+  def to_xml
+    super(:except => [:created_at, :updated_it, :lat, :long], :include => :teams)
+  end
+  
+  def to_json
+    super(:except => [:created_at, :updated_it, :lat, :long], :include => :teams)
+  end
 
 end

@@ -18,17 +18,16 @@
 
 </head>
 <body>
-  
-  <h1>Street Jockey</h1>
-  <ul>
-    <li><%= link_to "Red Team Clues", team_clues_path(Team.first) %></li>
-    <li><%= link_to "Blue Team Clues", team_clues_path(Team.find(2)) %></li>
-  </ul>
-  
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
-
+  <div class="container">
+    <div id="header">
+      <div id="title">StREetMIX</div>
+    </div>
+    <div id="content">
+      <p style="color: green"><%= flash[:notice] %></p>
+      <div id="content-inner">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
