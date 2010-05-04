@@ -53,7 +53,7 @@
   <div id="map_canvas"></div>
   
   <script type="text/javascript">
-    initialize_google_maps_with_scenarios( <%= @addresses.to_json -%>, <%= list_links.to_json -%>, <%= @titles.to_json -%>);
+    initialize_google_maps_with_scenarios( <%= @coordinates.to_json -%>, <%= list_links.to_json -%>);
   </script>
 </div>
 

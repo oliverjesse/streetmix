@@ -3,9 +3,7 @@ class ScenariosController < ApplicationController
   # GET /scenarios.xml
   def index
     @scenarios = Scenario.all
-    @addresses = Scenario.addresses
-    @links = [ url_for(@scenarios[0])]
-    @titles = Scenario.titles
+    @coordinates = Scenario.coordinates
 
     respond_to do |format|
       format.html # index.html.erb

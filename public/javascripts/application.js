@@ -97,7 +97,7 @@ function initialize_google_maps_with_territory_points(address, redteam, blueteam
 }
 
 
-function initialize_google_maps_with_scenarios(addresses, linkarray, titles) {
+function initialize_google_maps_with_scenarios(coordinates, linkarray) {
 
   // Create a base icon for all of our markers that specifies the
   // shadow, icon dimensions, etc.
@@ -120,25 +120,20 @@ function initialize_google_maps_with_scenarios(addresses, linkarray, titles) {
 	  return marker; 
 	}
 	
-	function plotScenarios(addresses, links, titles) {
+	function plotScenarios(addresses, links) {
 		if (addresses.length > 0) {
 			for ( var i=addresses.length-1; i>=0; --i ){
 				var current_link = links[i];
-		    geocoder.getLatLng(
-		      addresses[i],
-		      function(point) {
-		        if (!point) {
-		          alert("address not found");
-		        } else {
-							bounds.extend(point);
-		          map.setCenter(bounds.getCenter(),map.getBoundsZoomLevel(bounds));
-							alert(current_link);
-		          var marker = createMarker(point, current_link);
-		          map.addOverlay(marker);
-		          // marker.openInfoWindowHtml(addresses);
-		        }
-		      }
-		    );
+				
+				if (!addresses[i]) {
+	        alert("point not found");
+	      } else {
+					// here we add a nice point to our map and adjust the bounds
+					var gpoint = new GLatLng(addresses[i][0],addresses[i][1]);
+					bounds.extend(gpoint); 
+	        map.addOverlay(createMarker(gpoint, current_link));
+	        map.setCenter(bounds.getCenter(),map.getBoundsZoomLevel(bounds)); 
+	      }
 			}
 		}
 	}
@@ -148,7 +143,7 @@ function initialize_google_maps_with_scenarios(addresses, linkarray, titles) {
 		var bounds = new GLatLngBounds;
     map.addControl(new GLargeMapControl());
 
-		plotScenarios(addresses, linkarray, titles);
+		plotScenarios(coordinates, linkarray);
   }
 }
 
