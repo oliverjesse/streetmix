@@ -10,4 +10,9 @@ class Clue < ActiveRecord::Base
       :small  => "150x150>",
       :medium => "300x300>",
       :large =>   "400x400>" }
+      
+  def to_json(options = {})
+    # super
+    super(:except => [:created_at, :updated_at, :scenario_id, :photo_file_size, :photo_file_name, :photo_content_type ])    
+  end
 end

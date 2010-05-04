@@ -1,11 +1,7 @@
 
 <div id="left-column">
-  <div id="scenario-title">
-    <%=h @play.scenario.title %>
-  </div>
   <div id="scenario-stats">
     <div id="scenario-timer">
-      
       <p>
         <b>Time left:</b>
 
@@ -19,28 +15,15 @@
     </div>
   </div>
   <div id="scenario-facts">
+    <p><b><%=h @play.scenario.title %></b></p>
     <p>
-      <b>Scenario:</b>
       <%=h @play.scenario.description %>
     </p>
     <p>
-      <b>Starting Address:</b>
+      <b>Starting Location:</b>
       <%=h @play.scenario.address %>
     </p>
-    <p>
-      <b>Duration:</b>
-      <%=h @play.duration %>
-    </p>
 
-    <p>
-      <b>Winning team:</b>
-      <%=h @play.winning_team_id %>
-    </p>
-
-    <p>
-      <b>Start time:</b>
-      <%=h @play.start_time %>
-    </p>
     
   </div>
 </div>
