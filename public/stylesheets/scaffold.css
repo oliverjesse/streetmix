@@ -50,8 +50,7 @@ body {
 #left-column {
 	margin-right: 15px;
 	float: left;
-	width: 360px;
-	padding: 15px;
+	width: 400px;
 	-moz-border-radius: 10px; -webkit-border-radius: 10px;
 }
 
@@ -63,10 +62,55 @@ body {
 	padding: 15px;
 }
 
+#game-intro {
+	background: #ffffff;
+	background-color: #ffffff;
+	-moz-border-radius: 10px; -webkit-border-radius: 10px;	
+	margin-bottom: 15px;
+	padding: 15px;
+}
 
-#countdown { width: 240px; height: 60px;}
+#scenario-list {
+	background: #ffffff;
+	background-color: #ffffff;
+	-moz-border-radius: 10px; -webkit-border-radius: 10px;	
+	margin-bottom: 15px;
+	padding: 15px;
+}
 
+#scenario-points {
+	text-align: center;
+	margin-top: 30px;
+	height: 60px;
+	padding-left: 60px;
+}
 
+.scenario-team-score {
+	height: 60px;
+	margin-left: 40px;
+	margin-right: 40px;
+	float: left;
+}
+
+.score {
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.score-label {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+#countdown { width: 240px; height: 60px; margin-left: 60px; text-align: center;}
+.countdown_section {padding-top: 15px;}
+#game_over {
+	color: #990000;
+	font-size: 200%;
+	text-align: center;
+}
+
+#map_canvas { width: 630px; height: 500px; }
 
 #scenario-facts {
 	background: #ffffff;
@@ -79,7 +123,6 @@ body {
 #right-column {
 	background: #ffffff;
 	background-color: #ffffff;
-	margin-left: 15px;
 	float: right;
 	width: 630px;
 	padding: 15px;

@@ -41,6 +41,7 @@ class PlaysController < ApplicationController
 
   # POST /plays
   # POST /plays.xml
+  # POST /plays.json
   def create
     @play = Play.new({:scenario_id => params[:scenario_id]})
 
@@ -49,9 +50,11 @@ class PlaysController < ApplicationController
         flash[:notice] = 'Play was successfully created.'
         format.html { redirect_to(@play) }
         format.xml  { render :xml => @play, :status => :created, :location => @play }
+        format.json { render :text => @play.to_json }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @play.errors, :status => :unprocessable_entity }
+        format.json  { render :text => @play.errors.to_json, :status => :unprocessable_entity }
       end
     end
   end

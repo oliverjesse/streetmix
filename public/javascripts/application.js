@@ -97,6 +97,63 @@ function initialize_google_maps_with_territory_points(address, redteam, blueteam
 }
 
 
+function initialize_google_maps_with_scenarios(addresses, linkarray, titles) {
+
+  // Create a base icon for all of our markers that specifies the
+  // shadow, icon dimensions, etc.
+  var baseIcon = new GIcon(G_DEFAULT_ICON);
+  baseIcon.image = "/images/test_drawables/arrow_red.png"
+  baseIcon.shadowSize = new GSize(0, 0);
+  baseIcon.iconSize = new GSize(20, 32);
+  baseIcon.iconAnchor = new GPoint(10, 32);
+  // baseIcon.infoWindowAnchor = new GPoint(9, 2);
+
+	function createMarker(latlng, linkhtml) {
+	  var thisIcon = baseIcon;
+	  markerOptions = { icon:thisIcon}; // Set up our GMarkerOptions object
+	  var marker = new GMarker(latlng, markerOptions);  
+	  var html = linkhtml;
+	  // var html="<div class='pin-info'><a href='"+link+"'>"+title+"</a><br />"+address+"</div>"
+	  GEvent.addListener(marker,"click", function() { 
+	      map.openInfoWindowHtml(latlng, html); 
+	      }); 
+	  return marker; 
+	}
+	
+	function plotScenarios(addresses, links, titles) {
+		if (addresses.length > 0) {
+			for ( var i=addresses.length-1; i>=0; --i ){
+				var current_link = links[i];
+		    geocoder.getLatLng(
+		      addresses[i],
+		      function(point) {
+		        if (!point) {
+		          alert("address not found");
+		        } else {
+							bounds.extend(point);
+		          map.setCenter(bounds.getCenter(),map.getBoundsZoomLevel(bounds));
+							alert(current_link);
+		          var marker = createMarker(point, current_link);
+		          map.addOverlay(marker);
+		          // marker.openInfoWindowHtml(addresses);
+		        }
+		      }
+		    );
+			}
+		}
+	}
+
+  if (GBrowserIsCompatible()) {
+    var map = new GMap2(document.getElementById("map_canvas"));
+		var bounds = new GLatLngBounds;
+    map.addControl(new GLargeMapControl());
+
+		plotScenarios(addresses, linkarray, titles);
+  }
+}
+
+
+
 // window.onload=initialize; 
 // window.onunload=GUnload; 
 
