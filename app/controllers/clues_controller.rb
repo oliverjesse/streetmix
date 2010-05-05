@@ -51,7 +51,7 @@ class CluesController < ApplicationController
         flash[:notice] = 'Clue was successfully created.'
         format.html { redirect_to([@team, @clue]) }
         format.xml  { render :xml => @clue, :status => :created, :location => @clue }
-        format.json { render :text => @event.to_json }
+        format.json { render :text => @clue.to_json }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @clue.errors, :status => :unprocessable_entity }
@@ -70,9 +70,11 @@ class CluesController < ApplicationController
         flash[:notice] = 'Clue was successfully updated.'
         format.html { redirect_to([@team, @clue]) }
         format.xml  { head :ok }
+        format.json { render :text => @clue.to_json }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @clue.errors, :status => :unprocessable_entity }
+        format.json  { render :text => @clue.errors, :status => :unprocessable_entity }
       end
     end
   end

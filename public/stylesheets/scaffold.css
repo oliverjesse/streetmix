@@ -37,7 +37,7 @@ td.name_candidate { width: 150px; text-align: right; font-weight: bold;}
 
 body {
   font-family: Verdana, "Bitstream Vera Sans", sans-serif;
-	background-color: #232323;
+	background-color: #09440f;
 }
 
 .container {width:1100px; margin: 0 auto;}
@@ -60,6 +60,7 @@ body {
 	-moz-border-radius: 10px; -webkit-border-radius: 10px;	
 	margin-bottom: 15px;
 	padding: 15px;
+	border: 2px solid #99cc88;
 }
 
 #game-intro {
@@ -68,6 +69,7 @@ body {
 	-moz-border-radius: 10px; -webkit-border-radius: 10px;	
 	margin-bottom: 15px;
 	padding: 15px;
+	border: 2px solid #99cc88;
 }
 
 #scenario-list {
@@ -76,6 +78,7 @@ body {
 	-moz-border-radius: 10px; -webkit-border-radius: 10px;	
 	margin-bottom: 15px;
 	padding: 15px;
+	border: 2px solid #99cc88;
 }
 
 #scenario-points {
@@ -91,6 +94,16 @@ body {
 	margin-right: 40px;
 	float: left;
 }
+
+#scenario-start {
+	width: 100%;
+	font-weight: bold;
+	text-align: center;
+	color: #990000;
+}
+
+#scenario-start a:visited { color: #990000;}
+#scenario-start a:hover { color: #ffffff;}
 
 .score {
 	font-size: 150%;
@@ -118,6 +131,7 @@ body {
 	-moz-border-radius: 10px; -webkit-border-radius: 10px;
 	margin-top: 15px;
 	padding: 15px;
+	border: 2px solid #99cc88;
 }
 
 #right-column {
@@ -127,6 +141,7 @@ body {
 	width: 630px;
 	padding: 15px;
 	-moz-border-radius: 10px; -webkit-border-radius: 10px;
+	border: 2px solid #99cc88;
 }
 
 /* Headings
@@ -180,6 +195,7 @@ p.quiet { color: "#666"; }
 	margin-top: 15px;
 	margin-bottom: 15px;
 	margin-left: 15px;
+	border:	2px solid #99cc88;
 }
 
 

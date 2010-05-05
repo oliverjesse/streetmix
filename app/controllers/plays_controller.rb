@@ -2,7 +2,10 @@ class PlaysController < ApplicationController
   # GET /plays
   # GET /plays.xml
   def index
+    # unless (params[:active] == true)
     @plays = Play.all
+    # else
+    #   @plays = Play.find(:all, :)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100422190458) do
+ActiveRecord::Schema.define(:version => 20100504222738) do
 
   create_table "clues", :force => true do |t|
     t.float    "lat"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20100422190458) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.string   "photo_file_size"
+    t.boolean  "on_path",            :default => true, :null => false
   end
 
   create_table "plays", :force => true do |t|

@@ -10,7 +10,7 @@
         <span class="score-label">Clues</span>
       </div>
       <div class="scenario-team-score" style="color: #000099;">
-        <span class="score"><%= @play.teams.first.clues.size -%></span><br>
+        <span class="score"><%= @play.teams.last.clues.size -%></span><br>
         <span class="score-label">Clues</span>
       </div>
     </div>
@@ -37,6 +37,7 @@
     } else {
       $('#countdown').html("<p id='game_over'>Game Over!</p>");
     }
-    initialize_google_maps_with_territory_points('<%= @scenario.address -%>',<%= @play.teams.first.clue_points.to_json -%>,<%= @play.teams.last.clue_points.to_json -%>);
+    // initialize_google_maps_with_territory_points('<%= @scenario.address -%>',<%= @play.teams.first.clue_points.to_json -%>,<%= @play.teams.last.clue_points.to_json -%>);
+    initialize_google_maps_with_territory_points_and_polygons('<%= @scenario.address -%>',<%= @play.teams.first.clue_points.to_json -%>,<%= @play.teams.last.clue_points.to_json -%>,<%= @play.teams.first.perimeter_as_arrays.to_json -%>,<%= @play.teams.last.perimeter_as_arrays.to_json -%>);    
   </script>
 </div>
