@@ -14,6 +14,16 @@
         <span class="score-label">Clues</span>
       </div>
     </div>
+    <div id="scenario-territory">
+      <div class="scenario-team-territory" style="color: #990000;">
+        <span class="score"><%= @play.teams.first.area -%></span><br>
+        <span class="score-label">Points</span>
+      </div>
+      <div class="scenario-team-territory" style="color: #000099;">
+        <span class="score"><%= @play.teams.last.area -%></span><br>
+        <span class="score-label">Points</span>
+      </div>
+    </div>
   </div>
   <div id="scenario-facts">
     <p><b><%=h @play.scenario.title %></b></p>

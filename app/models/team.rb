@@ -10,16 +10,22 @@ class Team < ActiveRecord::Base
     points
   end
   
+  def clue_total
+    clues ? clues.size : nil
+  end
+  
   # astonishingly, the following translation from java appears to work. no points for rubyishness.
   def perimeter
     hull = []
+    possible_points = clues.find(:all, :conditions => {:on_path => true})
+    return [] unless possible_points.size >= 3
     angleToLastPoint = 0
     reference_point = last_point_on_hull = lowest_point_on_hull
     begin
       hull << last_point_on_hull
       lastAngle = Float::MAX
       lastPoint = nil
-      clues.find(:all, :conditions => {:on_path => true}).each do |clue|
+      possible_points.each do |clue|
         next if ((clue.x == last_point_on_hull.x) && (clue.y == last_point_on_hull.y)) # should only compare x and y values
         angle = Math::atan2(-clue.y - -last_point_on_hull.y, clue.x - last_point_on_hull.x)
         #########
@@ -50,12 +56,13 @@ class Team < ActiveRecord::Base
   def area
     total = 0
     ppoints = perimeter
+    return 0 unless (ppoints.size >= 3)
     pprev = ppoints.last
     ppoints.each do |p|
       total += (pprev.x * -p.y) - (p.x * -pprev.y)
       pprev = p
     end
-    return total
+    return (total * 1000).to_i
   end
   
   # Determine the lowest point on the hull.
