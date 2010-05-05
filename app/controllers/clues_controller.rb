@@ -1,4 +1,5 @@
 class CluesController < ApplicationController
+  protect_from_forgery :only => [:destroy]
   before_filter :set_team
   
   # GET /clues
