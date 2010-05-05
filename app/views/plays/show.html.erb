@@ -6,11 +6,11 @@
     </div>
     <div id="scenario-points">
       <div class="scenario-team-score" style="color: #990000;">
-        <span class="score"><%= @play.teams.first.clues.size -%></span><br>
+        <span class="score"><%= @play.teams.first.clue_total -%></span><br>
         <span class="score-label">Clues</span>
       </div>
       <div class="scenario-team-score" style="color: #000099;">
-        <span class="score"><%= @play.teams.last.clues.size -%></span><br>
+        <span class="score"><%= @play.teams.last.clue_total -%></span><br>
         <span class="score-label">Clues</span>
       </div>
     </div>
