@@ -62,7 +62,7 @@ class Team < ActiveRecord::Base
       total += (pprev.x * -p.y) - (p.x * -pprev.y)
       pprev = p
     end
-    return (total * 10000).to_i
+    return (total * 1000000).to_i
   end
   
   # Determine the lowest point on the hull.
