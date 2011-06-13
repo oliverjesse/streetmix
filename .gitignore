@@ -3,3 +3,5 @@
 .DS_Store
 *.DS_Store
 public/system
+vendor/bundler_gems
+Gemfile.lock
