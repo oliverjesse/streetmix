@@ -6,7 +6,7 @@ Scotty wrote the android app, which is available here: http://github.com/oliverj
 
 This repository is mostly open sourced to show potential employers a little sample code I've written.  Note the specs.
 
-For the intrepid, you can see the worst code in the project at http://github.com/oliverjesse/streetmix/app/models/team.rb, which contains
+For the intrepid, you can see the worst code in the project at https://github.com/oliverjesse/streetmix/blob/master/app/models/team.rb, which contains
 an implementation of a perimeter walk algorithm for finding the maximum area that can be enclosed by an arbitrary set of points on a plane.  I translated it from Java under deadline in about two hours.
 
 == How the Game Works
